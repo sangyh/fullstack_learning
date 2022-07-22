@@ -18,10 +18,21 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-      <v-btn to="login" text dark class="cyan">
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        to="login"
+        text
+        dark
+        class="cyan">
         Login
       </v-btn>
-      <v-btn to="register" text dark class="cyan">
+
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        to="register"
+        text
+        dark
+        class="cyan">
         Sign Up
       </v-btn>
     </v-toolbar-items>

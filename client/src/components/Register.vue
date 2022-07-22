@@ -6,7 +6,7 @@
           <v-toolbar-title>Register</v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <form 
+          <form
             name="tab-tracker-form"
             autocomplete="off">
             <v-text-field
@@ -29,7 +29,7 @@
           <v-btn class="cyan" dark
               @click="register">
               Register
-          </v-btn>          
+          </v-btn>
         </div>
       </div>
     </v-flex>
@@ -49,10 +49,12 @@ export default {
   methods: {
     async register () {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token) // call setToken action in vuex store
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
