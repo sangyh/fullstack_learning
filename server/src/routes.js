@@ -4,5 +4,8 @@ const AuthenticationControllerPolicy = require('./policies/AuthenticationControl
 module.exports = (app) => { //returns function where app can be passed to attach all endpoints to that express application
     app.post('/register',
         AuthenticationControllerPolicy.register, //validate inputs
-        AuthenticationController.register)
+        AuthenticationController.register),
+
+    app.post('/login',
+        AuthenticationController.login)
 }
