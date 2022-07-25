@@ -13,7 +13,7 @@ app.use(cors())
 
 require('./routes')(app)
 
-sequelize.sync() //connects squelize to database to create tables 
+sequelize.sync({force: false}) //connects squelize to database to create tables 
     .then(() => {
         app.listen(config.port) //runs expressjs server on port from config.pot
         console.log(`Server started on port ${config.port}`)

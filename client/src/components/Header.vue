@@ -9,11 +9,14 @@
       </router-link>
     </v-toolbar-title>
 
-    <!-- <v-toolbar-items>
-      <v-btn flat dark class="cyan">
+    <v-toolbar-items>
+      <v-btn
+        to="songs"
+        text
+        dark>
         Browse
       </v-btn>
-    </v-toolbar-items> -->
+    </v-toolbar-items>
 
     <v-spacer></v-spacer>
 
@@ -22,8 +25,7 @@
         v-if="!$store.state.isUserLoggedIn"
         to="login"
         text
-        dark
-        class="cyan">
+        dark>
         Login
       </v-btn>
 
@@ -31,9 +33,17 @@
         v-if="!$store.state.isUserLoggedIn"
         to="register"
         text
-        dark
-        class="cyan">
+        dark>
         Sign Up
+      </v-btn>
+
+      <v-btn
+        v-if="$store.state.isUserLoggedIn"
+        to="root"
+        text
+        dark
+        @click="logout">
+        Log Out
       </v-btn>
     </v-toolbar-items>
   </v-toolbar>
@@ -41,6 +51,12 @@
 
 <script>
 export default {
+  methods: {
+    logout () {
+      this.$store.dispatch('setToken', null) //this will cause isUserLoggedIn in store.js to be set to False
+      this.$store.dispatch('setUser', null)
+    }
+  }
 }
 </script>
 <style scoped>
