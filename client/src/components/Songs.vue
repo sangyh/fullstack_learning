@@ -1,7 +1,22 @@
 <template>
-  <v-layout column>
+  <v-container fluid column>
     <v-flex xs6 offset-xs3>
       <panel title="Songs">
+        <!-- <router-link :to = "{name: 'songs-create'}"> -->
+        <v-btn
+          slot = "action"
+          class = "cyan accent-2"
+          light
+          medium
+          absolute
+          right
+          middle
+          fab
+          to='songs/create'>
+            <v-icon>add</v-icon>
+        </v-btn>
+        <!-- </router-link> -->
+        
         <div v-for="song in songs"
           :key="song.id">
           {{song.title}}
@@ -10,7 +25,7 @@
         </div>
       </panel> 
     </v-flex>
-  </v-layout>
+  </v-container>
 </template>
 
 <script>
