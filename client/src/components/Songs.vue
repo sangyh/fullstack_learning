@@ -12,7 +12,7 @@
           right
           middle
           fab
-          to='songs/create'>
+          :to="{name: 'songs-create'}">
             <v-icon>add</v-icon>
         </v-btn>
         <!-- </router-link> -->

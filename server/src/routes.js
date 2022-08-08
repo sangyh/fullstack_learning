@@ -12,6 +12,10 @@ module.exports = (app) => { //returns function where app can be passed to attach
 
     app.get('/songs',
         SongsController.getAllSongs)
+    app.get('/songs/:songId',
+        SongsController.show)
+    app.put('/songs/:songId',
+        SongsController.put)
     app.post('/songs',
         SongsController.post)
 }

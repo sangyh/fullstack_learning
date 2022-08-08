@@ -11,7 +11,7 @@
 
     <v-toolbar-items>
       <v-btn
-        to="songs"
+        :to="{name:'songs'}"
         text
         dark>
         Browse
@@ -23,7 +23,7 @@
     <v-toolbar-items>
       <v-btn
         v-if="!$store.state.isUserLoggedIn"
-        to="login"
+        :to="{name:'login'}"
         text
         dark>
         Login
@@ -31,7 +31,7 @@
 
       <v-btn
         v-if="!$store.state.isUserLoggedIn"
-        to="register"
+        :to="{name:'register'}"
         text
         dark>
         Sign Up
