@@ -8,12 +8,15 @@ import { sync } from 'vuex-router-sync' // this maps and send out dispatch event
 import 'vuetify/dist/vuetify.min.css'
 import store from '@/store/store'
 import VueYouTubeEmbed from 'vue-youtube-embed'
+import Panel from '@/components/globals/Panel' // panel component used in all vue components
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
 // Vue.use(VueRouter)
 Vue.use(VueYouTubeEmbed)
+
+Vue.component('panel',Panel)
 
 sync(store, router) //sync store to the router
 
