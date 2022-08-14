@@ -20,7 +20,7 @@
           ></v-text-field>
         </form>
         <br>
-        <div class="error" v-html="error"/>
+        <div class="danger-alert" v-html="error"/>
         <br>
         <v-btn class="cyan" dark
             @click="register">
@@ -51,6 +51,9 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token) // call setToken action in vuex store
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({ // redirct to songs page after login
+          name: 'songs'
+        })
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -61,8 +64,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.error {
-  color: red;
-  background-color:white !important;
-}
 </style>

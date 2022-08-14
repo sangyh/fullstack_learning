@@ -3,7 +3,7 @@
     <v-toolbar-title class="mr-4">
       <router-link class="home" tag="span"
         :to="{
-          name: 'root'
+          name: 'songs'
         }">
         TabTracker
       </router-link>
@@ -39,7 +39,7 @@
 
       <v-btn
         v-if="$store.state.isUserLoggedIn"
-        to="root"
+        to="songs"
         text
         dark
         @click="logout">
